@@ -1,0 +1,19 @@
+:root {
+  --color-bg: #ffffff;
+  --color-text: #1a1a1a;
+  --color-primary: #6c63ff;
+  --color-secondary: #f5f5f5;
+
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 32px;
+
+  --font-family-base: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+[data-theme='dark'] {
+  --color-bg: #121212;
+  --color-text: #f0f0f0;
+  --color-primary: #9d97ff;
+  --color-secondary: #1e1e1e;
+}

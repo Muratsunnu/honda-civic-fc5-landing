@@ -1,0 +1,29 @@
+// ============================================================
+// Responsive breakpoint mixin'leri
+// Challenge'ın istediği 3 breakpoint:
+//   - Mobil:    <= 640px   (varsayılan stil, mixin gerekmez)
+//   - Tablet:   641px - 1024px
+//   - Masaüstü: >= 1025px
+//
+// Mobil-öncelikli (mobile-first) yaklaşım: varsayılan stilleri
+// mobil için yazarız, sonra ekran büyüdükçe @include ile ekleriz.
+// ============================================================
+
+// Breakpoint sınır değerlerini tek yerde tutuyoruz.
+// Bir gün değişirse sadece burayı düzenlemek yeterli.
+$breakpoint-tablet: 641px;
+$breakpoint-desktop: 1025px;
+
+// Tablet ve üstü (641px'den itibaren)
+@mixin tablet {
+  @media (min-width: $breakpoint-tablet) {
+    @content; // @content = mixin çağrılırken içine yazılan kuralları buraya koyar
+  }
+}
+
+// Masaüstü ve üstü (1025px'den itibaren)
+@mixin desktop {
+  @media (min-width: $breakpoint-desktop) {
+    @content;
+  }
+}
