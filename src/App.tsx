@@ -1,6 +1,7 @@
 import Button from './components/Button/Button'
 import Input from './components/Input/Input'
 import Card from './components/Card/Card'
+import Accordion from './components/Accordion/Accordion'
 
 function App() {
   return (
@@ -39,6 +40,29 @@ function App() {
             Seç
           </Button>
         </Card>
+      </div>
+
+      {/* Geçici test alanı — Accordion bileşeni (state ile aç/kapa) */}
+      <div style={{ maxWidth: '600px' }}>
+        <Accordion
+          items={[
+            {
+              question: 'VTEC ne zaman devreye girer?',
+              answer:
+                '1.5 litrelik turbo motorda VTEC sistemi yüksek devirlerde subap zamanlamasını optimize ederek ek güç ve verim sağlar.',
+            },
+            {
+              question: 'Ortalama yakıt tüketimi nedir?',
+              answer:
+                'Şehir içi ve şehir dışı karışık kullanımda ortalama 6-7 litre/100km değerlerine ulaşılabilir.',
+            },
+            {
+              question: 'Bagaj hacmi kaç litre?',
+              answer:
+                'Sedan gövde tipinde 519 litrelik geniş bagaj hacmiyle sınıfının önde gelenlerindendir.',
+            },
+          ]}
+        />
       </div>
 
       {/* Geçici test alanı — Button bileşenini deniyoruz */}
