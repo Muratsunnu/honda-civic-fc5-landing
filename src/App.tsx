@@ -1,5 +1,6 @@
 import Button from './components/Button/Button'
 import Input from './components/Input/Input'
+import Card from './components/Card/Card'
 
 function App() {
   return (
@@ -15,6 +16,29 @@ function App() {
           defaultValue="yanlis-mail"
           error="Geçerli bir e-posta adresi girin"
         />
+      </div>
+
+      {/* Geçici test alanı — Card bileşeni (composition: içine ne koyarsak o) */}
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(2, 1fr)',
+          gap: '1.5rem',
+          maxWidth: '600px',
+        }}
+      >
+        <Card>
+          <h3>1.5 Turbo Motor</h3>
+          <p>182 beygir güçle keyifli ve verimli sürüş.</p>
+        </Card>
+
+        <Card featured>
+          <h3>Sport Paketi</h3>
+          <p>En popüler donanım — spor jant, deri döşeme.</p>
+          <Button variant="primary" size="sm">
+            Seç
+          </Button>
+        </Card>
       </div>
 
       {/* Geçici test alanı — Button bileşenini deniyoruz */}
