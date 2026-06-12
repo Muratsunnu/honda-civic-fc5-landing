@@ -1,9 +1,14 @@
+import { useState } from 'react'
 import Button from './components/Button/Button'
 import Input from './components/Input/Input'
 import Card from './components/Card/Card'
 import Accordion from './components/Accordion/Accordion'
+import Modal from './components/Modal/Modal'
 
 function App() {
+  // Modal'ın açık/kapalı durumunu App tutuyor
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
   return (
     <div style={{ padding: '2rem', display: 'grid', gap: '1rem' }}>
       <h1>Landing Page</h1>
@@ -84,6 +89,24 @@ function App() {
           Tıkla
         </Button>
       </div>
+
+      {/* Geçici test alanı — Modal bileşeni */}
+      <div>
+        <Button variant="primary" onClick={() => setIsModalOpen(true)}>
+          Modal'ı Aç
+        </Button>
+      </div>
+
+      <Modal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        title="Talebiniz Alındı ✓"
+      >
+        <p>
+          Test sürüşü talebiniz başarıyla iletildi. En kısa sürede sizinle
+          iletişime geçeceğiz.
+        </p>
+      </Modal>
     </div>
   )
 }
