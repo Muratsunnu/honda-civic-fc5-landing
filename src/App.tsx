@@ -4,6 +4,7 @@ import Input from './components/Input/Input'
 import Card from './components/Card/Card'
 import Accordion from './components/Accordion/Accordion'
 import Modal from './components/Modal/Modal'
+import ThemeToggle from './components/ThemeToggle/ThemeToggle'
 
 function App() {
   // Modal'ın açık/kapalı durumunu App tutuyor
@@ -11,7 +12,10 @@ function App() {
 
   return (
     <div style={{ padding: '2rem', display: 'grid', gap: '1rem' }}>
-      <h1>Landing Page</h1>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <h1>Landing Page</h1>
+        <ThemeToggle />
+      </div>
 
       {/* Geçici test alanı — Input bileşeni */}
       <div style={{ display: 'grid', gap: '1rem', maxWidth: '320px' }}>
