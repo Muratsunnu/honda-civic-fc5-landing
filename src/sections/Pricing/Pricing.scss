@@ -1,0 +1,111 @@
+@use '../../styles/mixins' as *;
+
+.pricing {
+  padding: var(--spacing-lg) var(--spacing-md);
+  background-color: var(--color-secondary); // bölümü hafif ayır
+
+  @include tablet {
+    padding: calc(var(--spacing-lg) * 2) var(--spacing-lg);
+  }
+
+  &__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  &__head {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+  }
+
+  &__title {
+    margin: 0 0 var(--spacing-sm);
+    font-size: 1.75rem;
+    font-weight: 800;
+
+    @include tablet {
+      font-size: 2.25rem;
+    }
+  }
+
+  &__subtitle {
+    margin: 0;
+    color: var(--color-muted);
+  }
+
+  // Kart ızgarası: mobil 1, tablet 2, masaüstü 4 sütun
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+    align-items: stretch; // kartlar eşit yükseklikte
+
+    @include tablet {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include desktop {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  // Kart arka planını bölüm zemininden ayır
+  &__card {
+    position: relative; // rozet konumlandırması için
+    background-color: var(--color-bg);
+  }
+
+  // "Popüler" rozeti — featured kartın üstünde
+  &__badge {
+    position: absolute;
+    top: calc(var(--spacing-md) * -1);
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 4px 14px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #fff;
+    background-color: var(--color-primary);
+    border-radius: 999px;
+  }
+
+  &__plan-name {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 800;
+  }
+
+  &__plan-tagline {
+    margin: 0;
+    color: var(--color-muted);
+    font-size: 0.9375rem;
+  }
+
+  // Özellik listesi
+  &__features {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    margin: 0;
+    padding: 0;
+  }
+
+  &__feature {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-size: 0.9375rem;
+  }
+
+  &__check {
+    color: var(--color-primary);
+    font-weight: 700;
+  }
+
+  // CTA butonu kartın altına yapışsın, tam genişlik
+  &__cta {
+    margin-top: auto;
+    width: 100%;
+  }
+}
