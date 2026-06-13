@@ -13,8 +13,8 @@ function Hero() {
             Yolların sportif <span className="hero__accent">karakteri</span>
           </h1>
           <p className="hero__subtitle">
-            1.5 litre turbo motor, keskin tasarım ve sürüş keyfini bir araya
-            getiren FC5 ile her yolculuk bir deneyime dönüşür.
+            1.6 litre i-VTEC motoru, otomatik vitesi ve ekonomik benzin & LPG
+            kullanımıyla FC5; şehir içinde konforu ve verimi bir araya getirir.
           </p>
           <div className="hero__actions">
             <Button variant="primary" size="lg">
