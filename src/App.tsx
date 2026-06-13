@@ -2,6 +2,7 @@ import ThemeToggle from './components/ThemeToggle/ThemeToggle'
 import Hero from './sections/Hero/Hero'
 import Features from './sections/Features/Features'
 import Pricing from './sections/Pricing/Pricing'
+import FAQ from './sections/FAQ/FAQ'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Hero />
         <Features />
         <Pricing />
+        <FAQ />
       </main>
     </>
   )
