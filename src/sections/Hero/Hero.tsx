@@ -1,5 +1,6 @@
 import Button from '../../components/Button/Button'
-import heroImg from '../../assets/civic-hero.jpg'
+import heroSmall from '../../assets/civic-hero-640.webp'
+import heroLarge from '../../assets/civic-hero-1280.webp'
 import './Hero.scss'
 
 function Hero() {
@@ -31,11 +32,13 @@ function Hero() {
             için lazy-load YAPMIYORUZ; aksine öncelikli yüklenmeli. */}
         <div className="hero__media">
           <img
-            src={heroImg}
+            src={heroLarge}
+            srcSet={`${heroSmall} 640w, ${heroLarge} 1280w`}
+            sizes="(min-width: 1025px) 600px, 100vw"
             alt="Sisli bir yolda duran gri Honda Civic FC5"
             className="hero__image"
-            width={1500}
-            height={844}
+            width={1280}
+            height={720}
             fetchPriority="high"
           />
         </div>
