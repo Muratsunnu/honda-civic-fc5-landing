@@ -7,4 +7,30 @@ body {
   font-family: var(--font-family-base);
   line-height: 1.6;
   min-height: 100vh;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--color-bg);
+  border-bottom: 1px solid var(--color-secondary);
+
+  &__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    color: var(--color-text);
+  }
 }

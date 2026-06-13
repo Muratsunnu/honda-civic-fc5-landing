@@ -1,5 +1,29 @@
+import ThemeToggle from './components/ThemeToggle/ThemeToggle'
+import Hero from './sections/Hero/Hero'
+import Features from './sections/Features/Features'
+import Pricing from './sections/Pricing/Pricing'
+import FAQ from './sections/FAQ/FAQ'
+import Contact from './sections/Contact/Contact'
+
 function App() {
-  return <h1>Landing Page</h1>
+  return (
+    <>
+      <header className="site-header">
+        <div className="site-header__inner">
+          <span className="site-header__logo">CIVIC · FC5</span>
+          <ThemeToggle />
+        </div>
+      </header>
+
+      <main>
+        <Hero />
+        <Features />
+        <Pricing />
+        <FAQ />
+        <Contact />
+      </main>
+    </>
+  )
 }
 
 export default App
