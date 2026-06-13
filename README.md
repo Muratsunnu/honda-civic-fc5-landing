@@ -1,73 +1,87 @@
-# React + TypeScript + Vite
+# Honda Civic FC5 — Ürün Tanıtım Landing Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Honda Civic FC5 için tek sayfalık, mobil öncelikli ve erişilebilir bir ürün tanıtım sayfası. Vite + React + TypeScript ile yazıldı; stiller saf SCSS (BEM) ile, harici bir UI kütüphanesi kullanılmadan oluşturuldu.
 
-Currently, two official plugins are available:
+🔗 **Canlı demo:** https://muratsunnu.github.io/honda-civic-fc5-landing/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+![Lighthouse sonuçları](docs/lighthouse.png)
 
-## React Compiler
+## İçerik
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Sayfa beş bölümden oluşur:
 
-## Expanding the ESLint configuration
+- **Hero** — başlık, kısa tanıtım ve eylem butonları
+- **Özellikler** — motor, yakıt, vites ve bagaj öne çıkanları
+- **Donanım Paketleri** — Elegance, Eco Elegance, Executive, Eco Executive
+- **SSS** — açılır/kapanır soru-cevap (Accordion)
+- **İletişim** — doğrulamalı form ve başarı modalı (yalancı submit)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Tema değiştirici (light/dark) ile tüm sayfa anlık tema desteği sunar.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Teknolojiler
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- **Vite** + **React 19** + **TypeScript**
+- **SCSS** (BEM isimlendirme, CSS custom property ile tema)
+- **ESLint** + **Prettier**
+- **GitHub Actions** (CI + GitHub Pages deploy)
+- **sharp** (görsel optimizasyonu)
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Kurulum
+
+```bash
+npm install        # bağımlılıkları yükle
+npm run dev        # geliştirme sunucusu (http://localhost:5173)
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Komutlar
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+| Komut | Açıklama |
+| --- | --- |
+| `npm run dev` | Geliştirme sunucusunu başlatır |
+| `npm run build` | Production build üretir (`dist/`) |
+| `npm run preview` | Build çıktısını yerelde önizler |
+| `npm run lint` | ESLint kontrolü |
+| `npm run format` | Prettier ile biçimlendirme |
+| `npm run optimize:images` | Kaynak görselleri WebP'ye optimize eder |
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Proje Yapısı
+
 ```
+src/
+├── components/      # Yeniden kullanılabilir UI bileşenleri
+│   ├── Button/
+│   ├── Input/
+│   ├── Card/
+│   ├── Accordion/
+│   ├── Modal/
+│   └── ThemeToggle/
+├── sections/        # Sayfa bölümleri
+│   ├── Hero/
+│   ├── Features/
+│   ├── Pricing/
+│   ├── FAQ/
+│   └── Contact/
+├── hooks/           # useTheme
+├── styles/          # _variables, _reset, _mixins, global
+└── assets/          # Optimize edilmiş görseller
+```
+
+Her bileşen ve bölüm kendi klasöründe `.tsx` + `.scss` ikilisi olarak tutulur.
+
+## Mimari Notlar
+
+- **Bileşen mimarisi:** Beş çekirdek bileşen (Button, Input, Card, Accordion, Modal) props ile yapılandırılır ve sayfa bölümleri bu bileşenleri besteleyerek (composition) kurulur. Örneğin Contact bölümü Input + Button + Modal bileşenlerini birlikte kullanır.
+- **Stil:** Tek bir global CSS sıfırlama, CSS custom property tabanlı tema ve BEM isimlendirme. Renkler `:root` ve `[data-theme="dark"]` altında tanımlı; tema değişimi yalnızca `<html>` üzerindeki `data-theme` özniteliğini değiştirir.
+- **Responsive:** Mobil öncelikli yaklaşım; `_mixins.scss` içindeki `tablet` (≥641px) ve `desktop` (≥1025px) mixin'leri ile üç kırılım yönetilir.
+- **Erişilebilirlik:** Semantik HTML, `label`/`id` eşleşmesi, `aria-*` öznitelikleri, klavye ile gezinme ve görünür odak halkaları.
+- **Performans:** Hero görseli `srcset` ile iki boyutta WebP olarak sunulur; `aspect-ratio` ile yerleşim kayması (CLS) engellenir.
+
+Karar gerekçeleri için: [docs/](docs/) altındaki ADR dosyaları.
+
+## Dallanma Stratejisi
+
+- `main` — kararlı sürüm (GitHub Pages buradan deploy edilir)
+- `dev` — geliştirme ana dalı
+- `feat/*`, `fix/*`, `chore/*`, `ci/*`, `docs/*` — özellik/düzeltme dalları
+
+Commit mesajları [Conventional Commits](https://www.conventionalcommits.org/) biçimindedir.
