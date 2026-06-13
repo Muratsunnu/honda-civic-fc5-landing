@@ -7,13 +7,11 @@ body {
   font-family: var(--font-family-base);
   line-height: 1.6;
   min-height: 100vh;
-  // Tema değişiminde renkler yumuşak geçsin
   transition:
     background-color 0.3s ease,
     color 0.3s ease;
 }
 
-// Sayfa başlığı (her bölümün üstünde sabit kalır)
 .site-header {
   position: sticky;
   top: 0;

@@ -1,25 +1,19 @@
 import { useId, useState } from 'react'
 import './Accordion.scss'
 
-// Her bir soru-cevap çiftinin tipi
 export interface AccordionItem {
   question: string
   answer: string
 }
 
 interface AccordionProps {
-  items: AccordionItem[] // soru-cevap listesi dışarıdan verilir
+  items: AccordionItem[]
 }
 
 function Accordion({ items }: AccordionProps) {
-  // STATE: hangi panelin açık olduğunu index ile tutuyoruz.
-  // null = hepsi kapalı. Başlangıçta ilk soru (0) açık olsun.
   const [openIndex, setOpenIndex] = useState<number | null>(0)
-
-  // id'lerin benzersiz olması için ortak bir önek üretiyoruz
   const baseId = useId()
 
-  // Tıklanan panel zaten açıksa kapat (null yap), değilse o index'i aç.
   const toggle = (index: number) => {
     setOpenIndex((current) => (current === index ? null : index))
   }
@@ -33,26 +27,22 @@ function Accordion({ items }: AccordionProps) {
 
         return (
           <div className="accordion__item" key={index}>
-            {/* Başlık bir <h3> içinde <button> — semantik + klavye desteği */}
             <h3 className="accordion__heading">
               <button
                 type="button"
                 id={headerId}
                 className="accordion__trigger"
-                aria-expanded={isOpen} // açık/kapalı durumu
-                aria-controls={panelId} // hangi paneli kontrol ediyor
+                aria-expanded={isOpen}
+                aria-controls={panelId}
                 onClick={() => toggle(index)}
               >
                 <span>{item.question}</span>
-                {/* + / − işareti; açıkken döner (CSS'te) */}
                 <span className="accordion__icon" aria-hidden="true">
                   +
                 </span>
               </button>
             </h3>
 
-            {/* Cevap paneli. Kapalıyken hidden → hem görünmez
-                hem de ekran okuyucu/klavye atlamaz (erişilemez olur). */}
             <div
               id={panelId}
               role="region"

@@ -4,20 +4,16 @@ import Input from '../../components/Input/Input'
 import Modal from '../../components/Modal/Modal'
 import './Contact.scss'
 
-// Formdaki alanlar
 interface FormValues {
   name: string
   email: string
   message: string
 }
 
-// Hata mesajları (her alan opsiyonel — sadece hatalıysa dolar)
 type FormErrors = Partial<Record<keyof FormValues, string>>
 
 const EMPTY_FORM: FormValues = { name: '', email: '', message: '' }
 
-// Basit e-posta format kontrolü (yalın JS, harici kütüphane yok):
-// boşluksuz bir bölüm + @ + boşluksuz bir bölüm + . + boşluksuz bir bölüm
 function isValidEmail(email: string): boolean {
   return /^\S+@\S+\.\S+$/.test(email)
 }
@@ -30,17 +26,14 @@ function Contact() {
   const messageId = useId()
   const messageErrorId = `${messageId}-error`
 
-  // Tek bir handler ile tüm alanları yönet: input'un name'i = state anahtarı
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target
     setValues((prev) => ({ ...prev, [name]: value }))
-    // Kullanıcı yazmaya başlayınca o alanın hatasını temizle
     setErrors((prev) => ({ ...prev, [name]: undefined }))
   }
 
-  // Tüm alanları doğrula, hata nesnesini döndür
   const validate = (): FormErrors => {
     const next: FormErrors = {}
     if (!values.name.trim()) {
@@ -58,11 +51,10 @@ function Contact() {
   }
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault() // sayfanın yenilenmesini engelle (yalancı submit)
+    e.preventDefault()
     const nextErrors = validate()
     setErrors(nextErrors)
 
-    // Hata yoksa: başarı modalını aç ve formu temizle
     if (Object.keys(nextErrors).length === 0) {
       setIsModalOpen(true)
       setValues(EMPTY_FORM)
@@ -81,8 +73,6 @@ function Contact() {
           </p>
         </header>
 
-        {/* noValidate: tarayıcının kendi uyarılarını kapat, kendi
-            doğrulamamızı kullan (tutarlı ve erişilebilir mesajlar) */}
         <form className="contact__form" onSubmit={handleSubmit} noValidate>
           <Input
             label="Ad Soyad"
@@ -103,8 +93,6 @@ function Contact() {
             placeholder="ornek@mail.com"
           />
 
-          {/* Mesaj alanı çok satırlı olduğu için textarea.
-              Input bileşeninin erişilebilirlik yapısını burada elle kuruyoruz. */}
           <div className="contact__field">
             <label className="contact__label" htmlFor={messageId}>
               Mesajınız
@@ -133,7 +121,6 @@ function Contact() {
         </form>
       </div>
 
-      {/* Başarı modalı — Modal bileşenini yeniden kullanıyoruz */}
       <Modal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}

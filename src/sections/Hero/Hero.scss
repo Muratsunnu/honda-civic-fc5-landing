@@ -7,22 +7,20 @@
     padding: calc(var(--spacing-lg) * 2) var(--spacing-lg);
   }
 
-  // İçeriği ortalayan ve genişliği sınırlayan kapsayıcı
   &__inner {
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr; // mobil: tek sütun (alt alta)
+    grid-template-columns: 1fr;
     gap: var(--spacing-lg);
     align-items: center;
 
     @include desktop {
-      grid-template-columns: 1fr 1fr; // masaüstü: iki sütun (yan yana)
+      grid-template-columns: 1fr 1fr;
       gap: calc(var(--spacing-lg) * 2);
     }
   }
 
-  // --- Sol sütun: metin ---
   &__content {
     display: flex;
     flex-direction: column;
@@ -30,7 +28,7 @@
     text-align: center;
 
     @include desktop {
-      text-align: left; // masaüstünde sola yasla
+      text-align: left;
     }
   }
 
@@ -57,7 +55,6 @@
     }
   }
 
-  // Başlık içindeki vurgulu kelime (kırmızı)
   &__accent {
     color: var(--color-primary);
   }
@@ -69,11 +66,10 @@
     color: var(--color-muted);
 
     @include desktop {
-      max-width: 46ch; // satır uzunluğunu okunur tut
+      max-width: 46ch;
     }
   }
 
-  // Buton grubu
   &__actions {
     display: flex;
     flex-wrap: wrap;
@@ -85,19 +81,18 @@
     }
   }
 
-  // --- Sağ sütun: görsel ---
   &__media {
-    order: -1; // mobilde görseli metnin ÜSTÜNE al
+    order: -1;
 
     @include desktop {
-      order: 0; // masaüstünde normal sıra (metin solda, görsel sağda)
+      order: 0;
     }
   }
 
   &__image {
     width: 100%;
     height: auto;
-    aspect-ratio: 16 / 9; // yer tutar → görsel yüklenirken zıplama olmaz
+    aspect-ratio: 16 / 9;
     object-fit: cover;
     border-radius: 16px;
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);

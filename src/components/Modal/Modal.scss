@@ -1,23 +1,20 @@
-// Overlay: tüm ekranı kaplayan koyu yarı saydam katman
 .modal-overlay {
   position: fixed;
-  inset: 0; // top/right/bottom/left = 0 (tüm ekran)
-  z-index: 1000; // her şeyin üstünde
+  inset: 0;
+  z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: var(--spacing-md);
   background-color: rgba(0, 0, 0, 0.6);
-  // Hafif belirme animasyonu
   animation: modal-fade 0.2s ease;
 }
 
-// .modal = Block: asıl pencere kutusu
 .modal {
   width: 100%;
   max-width: 480px;
   max-height: 90vh;
-  overflow-y: auto; // içerik uzunsa kutu içinde kaysın
+  overflow-y: auto;
   background-color: var(--color-bg);
   border-radius: 12px;
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
@@ -38,7 +35,6 @@
     color: var(--color-text);
   }
 
-  // Kapatma (×) butonu
   &__close {
     display: flex;
     align-items: center;
@@ -70,7 +66,6 @@
   }
 }
 
-// Belirme animasyonları
 @keyframes modal-fade {
   from {
     opacity: 0;

@@ -2,8 +2,8 @@ import type { HTMLAttributes, ReactNode } from 'react'
 import './Card.scss'
 
 interface CardProps extends HTMLAttributes<HTMLDivElement> {
-  children: ReactNode // kartın içeriği — ne koyarsan o (composition)
-  featured?: boolean // true ise vurgulu/öne çıkan stil (örn. popüler paket)
+  children: ReactNode
+  featured?: boolean
 }
 
 function Card({ children, featured = false, className = '', ...rest }: CardProps) {

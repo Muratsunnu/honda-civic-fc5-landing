@@ -1,10 +1,3 @@
-// _variables ve _mixins'i kullanabilmek için import ediyoruz.
-// Not: CSS custom property'ler (var(--color-primary)) :root'ta tanımlı
-// olduğu için her yerden erişilebilir, ama SCSS değişken/mixin'leri
-// her dosyada @use ile çağırmak gerekir.
-@use '../../styles/mixins' as *;
-
-// .btn = Block: tüm butonların ortak temeli
 .btn {
   display: inline-flex;
   align-items: center;
@@ -17,22 +10,18 @@
   font-weight: 600;
   cursor: pointer;
   text-align: center;
-  transition: all 0.2s ease; // hover geçişlerini yumuşatır
+  transition: all 0.2s ease;
 
-  // Klavye ile gezerken (Tab) butona gelince görünür çerçeve.
-  // Erişilebilirlik için kritik — challenge a11y istiyor (15 puan).
   &:focus-visible {
     outline: 3px solid var(--color-primary);
     outline-offset: 2px;
   }
 
-  // Pasif (disabled) buton görünümü
   &:disabled {
     opacity: 0.5;
     cursor: not-allowed;
   }
 
-  // --- Modifier'lar: Boyutlar ---
   &--sm {
     padding: var(--spacing-sm) var(--spacing-md);
     font-size: 0.875rem;
@@ -48,18 +37,15 @@
     font-size: 1.125rem;
   }
 
-  // --- Modifier'lar: Görsel stiller ---
-  // primary: dolu, vurgu rengi (ana eylem butonu)
   &--primary {
     background-color: var(--color-primary);
     color: #fff;
 
     &:hover:not(:disabled) {
-      filter: brightness(1.1); // hover'da biraz parlat
+      filter: brightness(1.1);
     }
   }
 
-  // secondary: yumuşak arka plan (ikincil eylem)
   &--secondary {
     background-color: var(--color-secondary);
     color: var(--color-text);
@@ -69,7 +55,6 @@
     }
   }
 
-  // outline: sadece çerçeve, şeffaf zemin (üçüncül eylem)
   &--outline {
     background-color: transparent;
     color: var(--color-primary);

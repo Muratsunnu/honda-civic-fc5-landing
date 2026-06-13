@@ -1,8 +1,6 @@
 import Card from '../../components/Card/Card'
 import './Features.scss'
 
-// Özellik verisi: görünümden ayrı tutuyoruz.
-// İçerik değişince sadece bu diziyi düzenlemek yeterli.
 const features = [
   {
     icon: '⚡',
