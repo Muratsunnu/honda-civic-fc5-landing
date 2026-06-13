@@ -1,23 +1,19 @@
-// .accordion = Block: soru-cevap listesini saran kapsayıcı
 .accordion {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-sm);
 
-  // Element: tek bir soru-cevap kutusu
   &__item {
     border: 2px solid var(--color-secondary);
     border-radius: 8px;
     overflow: hidden;
   }
 
-  // <h3> başlığın varsayılan margin/font etkisini sıfırla
   &__heading {
     margin: 0;
     font-size: 1rem;
   }
 
-  // Element: tıklanabilir soru başlığı (button)
   &__trigger {
     width: 100%;
     display: flex;
@@ -40,14 +36,12 @@
       background-color: var(--color-secondary);
     }
 
-    // Klavye odağı görünürlüğü (a11y)
     &:focus-visible {
       outline: 3px solid var(--color-primary);
       outline-offset: -3px;
     }
   }
 
-  // Element: +/− ikonu
   &__icon {
     font-size: 1.5rem;
     line-height: 1;
@@ -55,17 +49,14 @@
     transition: transform 0.2s ease;
   }
 
-  // Açık panelin başlığındaki ikonu 45° döndür → + işareti × gibi olur
   &__trigger[aria-expanded='true'] &__icon {
     transform: rotate(45deg);
   }
 
-  // Element: cevap paneli
   &__panel {
     padding: 0 var(--spacing-lg) var(--spacing-md);
   }
 
-  // Element: cevap metni
   &__answer {
     margin: 0;
     color: var(--color-text);

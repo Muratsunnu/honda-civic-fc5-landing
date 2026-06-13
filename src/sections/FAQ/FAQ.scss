@@ -7,7 +7,6 @@
     padding: calc(var(--spacing-lg) * 2) var(--spacing-lg);
   }
 
-  // SSS okunabilirliği için dar bir kapsayıcı (tek sütun ideal)
   &__inner {
     max-width: 760px;
     margin: 0 auto;

@@ -2,8 +2,6 @@ import Button from '../../components/Button/Button'
 import Card from '../../components/Card/Card'
 import './Pricing.scss'
 
-// Donanım paketleri verisi (gerçek FC5 trim sıralaması).
-// featured: true olan kart öne çıkar.
 const plans = [
   {
     name: 'Elegance',

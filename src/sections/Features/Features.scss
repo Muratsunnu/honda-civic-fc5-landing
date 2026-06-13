@@ -32,7 +32,6 @@
     color: var(--color-muted);
   }
 
-  // Kart ızgarası: mobil 1, tablet 2, masaüstü 4 sütun
   &__grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -46,7 +45,6 @@
     }
   }
 
-  // Kart içeriğini ortala
   &__card {
     text-align: center;
     align-items: center;

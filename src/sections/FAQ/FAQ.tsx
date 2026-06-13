@@ -2,7 +2,6 @@ import Accordion from '../../components/Accordion/Accordion'
 import type { AccordionItem } from '../../components/Accordion/Accordion'
 import './FAQ.scss'
 
-// Soru-cevap verisi. Accordion bileşeni bunu prop olarak alıp render eder.
 const faqItems: AccordionItem[] = [
   {
     question: 'i-VTEC sistemi ne işe yarar?',

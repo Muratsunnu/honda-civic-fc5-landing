@@ -8,7 +8,6 @@ import Contact from './sections/Contact/Contact'
 function App() {
   return (
     <>
-      {/* Sayfa başlığı (header) — logo + tema değiştirici */}
       <header className="site-header">
         <div className="site-header__inner">
           <span className="site-header__logo">CIVIC · FC5</span>

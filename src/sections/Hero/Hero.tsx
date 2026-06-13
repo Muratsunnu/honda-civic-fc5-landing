@@ -7,7 +7,6 @@ function Hero() {
   return (
     <section className="hero" id="hero">
       <div className="hero__inner">
-        {/* Sol sütun: metin ve eylem butonları */}
         <div className="hero__content">
           <p className="hero__eyebrow">Honda Civic FC5</p>
           <h1 className="hero__title">
@@ -27,9 +26,6 @@ function Hero() {
           </div>
         </div>
 
-        {/* Sağ sütun: araç görseli.
-            Hero görseli sayfanın ilk görünen (above-the-fold) öğesi olduğu
-            için lazy-load YAPMIYORUZ; aksine öncelikli yüklenmeli. */}
         <div className="hero__media">
           <img
             src={heroLarge}

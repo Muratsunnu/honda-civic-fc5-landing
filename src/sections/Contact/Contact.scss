@@ -43,7 +43,6 @@
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
   }
 
-  // --- Mesaj alanı (textarea) — Input bileşeni stiliyle uyumlu ---
   &__field {
     display: flex;
     flex-direction: column;
@@ -65,7 +64,7 @@
     background-color: var(--color-bg);
     border: 2px solid var(--color-secondary);
     border-radius: 8px;
-    resize: vertical; // sadece dikey boyutlandırma
+    resize: vertical;
     transition: border-color 0.2s ease;
 
     &::placeholder {

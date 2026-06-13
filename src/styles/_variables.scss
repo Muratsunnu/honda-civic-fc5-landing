@@ -1,10 +1,9 @@
 :root {
-  // Light tema (varsayılan)
   --color-bg: #ffffff;
   --color-text: #16181d;
-  --color-muted: #5b6270; // ikincil/soluk metin
-  --color-primary: #e8002d; // Honda Type-R kırmızısı
-  --color-secondary: #f2f3f5; // açık gri (kenarlık, yumuşak zemin)
+  --color-muted: #5b6270;
+  --color-primary: #e8002d;
+  --color-secondary: #f2f3f5;
 
   --spacing-sm: 8px;
   --spacing-md: 16px;
@@ -17,6 +16,6 @@
   --color-bg: #0e0e10;
   --color-text: #f4f5f7;
   --color-muted: #a0a6b0;
-  --color-primary: #ff1f43; // koyu zeminde daha okunur kırmızı
+  --color-primary: #ff1f43;
   --color-secondary: #1d1f24;
 }

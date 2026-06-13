@@ -4,16 +4,15 @@ import { createPortal } from 'react-dom'
 import './Modal.scss'
 
 interface ModalProps {
-  isOpen: boolean // modal açık mı (state'i dışarıda tutuyoruz)
-  onClose: () => void // kapatma isteğinde çağrılacak fonksiyon
-  title: string // modal başlığı (a11y için zorunlu)
-  children: ReactNode // modal içeriği
+  isOpen: boolean
+  onClose: () => void
+  title: string
+  children: ReactNode
 }
 
 function Modal({ isOpen, onClose, title, children }: ModalProps) {
   const titleId = useId()
 
-  // Escape tuşunu dinle + modal açıkken arka plan kaymasını engelle
   useEffect(() => {
     if (!isOpen) return
 
@@ -21,26 +20,18 @@ function Modal({ isOpen, onClose, title, children }: ModalProps) {
       if (event.key === 'Escape') onClose()
     }
     document.addEventListener('keydown', handleKeyDown)
-
-    // Modal açıkken sayfa arkada kaymasın
     document.body.style.overflow = 'hidden'
 
-    // Temizlik: dinleyiciyi kaldır + scroll'u geri aç
     return () => {
       document.removeEventListener('keydown', handleKeyDown)
       document.body.style.overflow = ''
     }
   }, [isOpen, onClose])
 
-  // Kapalıysa hiçbir şey render etme
   if (!isOpen) return null
 
-  // createPortal: bu JSX'i document.body'nin sonuna ışınla
   return createPortal(
-    // Overlay: koyu yarı saydam arka plan. Tıklanınca kapanır.
     <div className="modal-overlay" onClick={onClose}>
-      {/* Kutunun kendisi. stopPropagation → kutuya tıklayınca
-          overlay'in onClose'u tetiklenmesin (sadece dışına tıklayınca kapansın) */}
       <div
         className="modal"
         role="dialog"

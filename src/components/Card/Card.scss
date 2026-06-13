@@ -1,5 +1,3 @@
-// .card = Block: içeriği saran stillenmiş kutu.
-// İçeride ne olduğunu bilmez — sadece kutuyu ve görünümü sağlar.
 .card {
   display: flex;
   flex-direction: column;
@@ -9,16 +7,13 @@
   background-color: var(--color-bg);
   border: 2px solid var(--color-secondary);
   border-radius: 12px;
-  // CSS değişkeniyle gölge: tema değişince gölge de uyumlu kalsın
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease;
 
-  // Modifier: öne çıkan/vurgulu kart (örn. en popüler fiyat paketi)
   &--featured {
     border-color: var(--color-primary);
-    // scale ile hafif büyüt → "bu özel" hissi
     transform: scale(1.03);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
   }
