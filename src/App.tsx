@@ -1,5 +1,6 @@
 import ThemeToggle from './components/ThemeToggle/ThemeToggle'
 import Hero from './sections/Hero/Hero'
+import Features from './sections/Features/Features'
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
 
       <main>
         <Hero />
+        <Features />
       </main>
     </>
   )
